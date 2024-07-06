@@ -18,3 +18,5 @@ As aula visa preparar os alunos para os desafios reais, abordando desde fundamen
 03/07/2024- Desenvolver um Plano de Teste para as funcionalidades "Cadastro" e "Recomendações"
 
 04/07/2024 - Criar cenarios de Teste em planilhas do Excel no VSCode(Gherkin)
+
+05/07/2024- Teste de Api no Postman
