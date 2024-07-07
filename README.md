@@ -20,3 +20,5 @@ As aula visa preparar os alunos para os desafios reais, abordando desde fundamen
 04/07/2024 - Criar cenarios de Teste em planilhas do Excel no VSCode(Gherkin)
 
 05/07/2024- Teste de Api no Postman
+
+06/07/2024- Teste de Automação Cypress
