@@ -1,40 +1,43 @@
 /// <reference types="cypress"/>
 
 describe('US-001-Funcionalidade: Busca de Filme', () => {
-    it('Deve fazer o cadastro de campos obrigatorios', () => {
-      cy.visit('http://127.0.0.1:8080/')
-      cy.get('#search-input').type('Jurassic Park')
-      cy.get('#search-button').click()
-      cy.get(':nth-child(1) > h3').should('contain' , 'Jurassic Park')
-      cy.get(':nth-child(2) > h3').should('contain' , 'The Lost World: Jurassic Park')
-      cy.get(':nth-child(3) > h3').should('contain' , 'Jurassic Park III')
-      cy.get(':nth-child(4) > h3').should('contain' , "The Making of 'Jurassic Park'")
-      cy.get(':nth-child(5) > h3').should('contain' ,'Jurassic Park')
-      cy.get(':nth-child(6) > h3').should('contain' ,'Jurassic Park: The Game')
-      cy.get(':nth-child(7) > h3').should('contain' ,'Jurassic Park: Operation Genesis')
-      cy.get(':nth-child(8) > h3').should('contain' ,'LEGO Jurassic Park: The Unofficial Retelling')
-      cy.get(':nth-child(9) > h3').should('contain' ,'Beyond Jurassic Park')
-      cy.get(':nth-child(10) > h3').should('contain' ,'The Lost World: Jurassic Park')
-    })
-  })
+  beforeEach(() => {
+    cy.visit('/')
+  });
 
-  describe('US-001-Funcionalidade: Busca de Filme', () => {
-   it('Busca de filmes sem resultado', () => {
-    cy.visit('http://127.0.0.1:8080/')
+  it('Busca de filmes', () => {
+    cy.get('#search-input').type('Jurassic Park')
+    cy.get('#search-button').click()
+    cy.get('#recommendations-section').should('Jurrasic Park')
+  });
+
+  it('Busca de filmes sem resultado', () => {
     cy.get('#search-input').type('@@')
     cy.get('#search-button').click()
-    cy.get('#results-section > p').should('contain' , 'Filme não encontrado')
-  })
-  })
+    cy.get('#results-section > p').should('contain', 'Filme não encontrado')
+  });
 
-    describe('US-001-Funcionalidade: Busca de Filme', () => {
-      it('Limpar a Busca do Fime', () => {
-      cy.visit('http://127.0.0.1:8080/')
-      cy.get('#search-input').type('Harry Potter')
-      cy.get('#clear-button').click()
-      })
+  it('Limpar a Busca do Fime', () => {
+    cy.visit('http://127.0.0.1:8080/')
+    cy.get('#search-input').type('Harry Potter')
+    cy.get('#clear-button').click()
+  });
+
+  it('Deve buscar uma lista de filmes', () => {
+    cy.fixture('filmes').then((filmes) => {
+      cy.get('#search-input').type(filmes[0].titulo)
+      cy.get('#search-button').click()
+      cy.get('#recommendations-section').should('contain', filmes[0].titulo)
     })
-  
+});
 
+  it('Deve buscar filmes com sucesso da lista inteira', () => {
+    cy.fixture('filmes').each((filmes) => {
+      cy.get('#search-input').clear().type(filmes.titulo)
+      cy.get('#search-button').click()
+      cy.get('#recommendations-section').should('contain', filmes.titulo)
 
+    })
+  })
 
+});
