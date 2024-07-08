@@ -22,3 +22,5 @@ As aula visa preparar os alunos para os desafios reais, abordando desde fundamen
 05/07/2024- Teste de Api no Postman
 
 06/07/2024- Teste de Automação Cypress
+
+07/07/2024- Boas Praticas de automação Cypress
