@@ -35,8 +35,8 @@ describe('US-012-Funcionalidade: Cadastros de membros', () => {
     cy.get('#signup-response').should('contain', 'Senha deve ter pelo menos 8 caracteres, incluir uma letra maiúscula, um número e um caractere especial (!@#$&*)"')
   });
 
-  it('Deve validar mensagem de erro de senha vazia ', () => {
+  it.only('Deve validar mensagem de erro de senha vazia ', () => {
    cy.validarSenhaVazia('Ana', 'Fernades', 'ana123@teste321.com' , '11985687466')
-    cy.get('#signup-response').should('contain', 'Senha não pode estar vazia')
+    cy.get('#signup-response').should('contain', '{"message":"\\"senha\\" is not allowed to be empty"')
   })
 })

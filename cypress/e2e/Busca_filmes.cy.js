@@ -22,7 +22,6 @@ describe('US-001-Funcionalidade: Busca de Filme', () => {
   });
 
   it('Limpar a Busca do Fime', () => {
-    cy.visit('http://127.0.0.1:8080/')
     cy.get('#search-input').type('Harry Potter')
     cy.get('#clear-button').click()
   });
