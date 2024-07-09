@@ -9,7 +9,7 @@ describe('US-001-Funcionalidade: Busca de Filme', () => {
     cy.screenshot()
   });
 
-  it.only('Busca de filmes', () => {
+  it('Busca de filmes', () => {
     cy.get('#search-input').type('Harry Potter')
     cy.get('#search-button').click()
     cy.get('#results-section').should('contain', 'Harry Potter')
