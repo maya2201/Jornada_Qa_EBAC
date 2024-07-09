@@ -24,3 +24,5 @@ As aula visa preparar os alunos para os desafios reais, abordando desde fundamen
 06/07/2024- Teste de Automação Cypress
 
 07/07/2024- Boas Praticas de automação Cypress
+
+08/07/2024 - Automação em CI com Github Action
